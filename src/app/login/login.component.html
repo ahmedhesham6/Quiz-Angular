@@ -1,0 +1,64 @@
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Log In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Register</label>
+		<div class="login-form">
+			<form #loginForm="ngForm"  (ngSubmit)="logSubmit()" novalidate>
+				<div class="sign-in-htm">
+					<div class="group form-group">
+						<label for="user" class="label">Username</label><small>Admin : George</small>
+						<input id="user" type="text" required #Name="ngModel" [class.is-invalid]="Name.invalid && Name.touched" class="input form-control" name="username" [(ngModel)]="userModel.first_name">
+						<small class="text-danger"[class.d-none]=" Name.valid || Name.untouched">Username is required</small>
+					</div>
+					<div class="group form-group">
+						<label for="pass" class="label">Password</label><small>Pass : Bluth</small>
+						<input id="pass" type="password" #pass="ngModel"  required [class.is-invalid]="pass.invalid && pass.touched" class="input form-control" data-type="password" name="password" [(ngModel)]="userModel.last_name">
+						<small class="text-danger" [class.d-none]=" pass.valid || pass.untouched">Missing Password</small>
+					</div>
+					<div class="group form-check">
+						<input id="check" type="checkbox" class="check form-check-input" checked name="check" ngModel>
+						<label for="check" class="form-check-label"><span class="icon"></span> Keep me Signed in</label>
+					</div>
+					<div class="group">
+						<input [disabled]="loginForm.form.invalid" type="submit" class="button" value="Log In">
+					</div>
+				</div>
+			</form>
+			<form #registerForm="ngForm"  (ngSubmit)="regSubmit()" novalidate>
+				<div class="sign-up-htm">
+					<div class="group form-group">
+						<label for="user" class="label">Username</label>
+						<input id="user" type="text" required #Name="ngModel" [class.is-invalid]="Name.invalid && Name.touched" class="input form-control" name="username" [(ngModel)]="userModel.first_name">
+						<small class="text-danger"[class.d-none]=" Name.valid || Name.untouched">Username is required</small>
+					</div>
+					<div class="group form-group">
+						<label for="pass" class="label">Password</label>
+						<input id="pass" type="password" #pass="ngModel"  required [class.is-invalid]="pass.invalid && pass.touched" class="input form-control" data-type="password" name="password" [(ngModel)]="userModel.last_name">
+						<small class="text-danger" [class.d-none]=" pass.valid || pass.untouched">Missing Password</small>
+					</div>
+					<div class="group form-group">
+						<label for="pass" class="label">Repeat Password</label>
+						<input id="pass" type="password" #pass2="ngModel"  required [class.is-invalid]="pass2.invalid && pass2.touched" class="input form-control" data-type="password" name="password2" ngModel>
+						<small class="text-danger" [class.d-none]=" pass2.valid || pass2.untouched">Missing Password</small>
+						<small class="text-danger" [class.d-none]=" pass2.value == pass.value || pass2.untouched">Not the same password</small>
+					</div>
+					<div class="group form-group">
+						<label for="pass" class="label">Email Address</label>
+						<input id="pass" type="text" #contactemail="ngModel" name="email" [(ngModel)]="userModel.email" required
+						pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="input form-control">
+						<div *ngIf="contactemail.errors && (contactemail.invalid && contactemail.touched)">
+							<small class="text-danger" *ngIf="contactemail.errors['required']">Email is required</small>
+							<small class="text-danger" *ngIf="contactemail.errors['pattern']">Email is invalid</small>
+						</div>
+					</div>
+					<div class="group form-group">
+						<input [disabled]="registerForm.form.invalid" type="submit" class="button form-control" value="Register">
+					</div>
+					<div class="foot-lnk">
+						<label for="tab-1">Already Member?</label>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

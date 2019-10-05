@@ -1,0 +1,41 @@
+<!-- Default form contact -->
+
+<body>
+    <div class="container">
+        <form class="text-center border border-light p-5" action="#!">
+
+            <p class="h1 mb-4">Quiz</p>
+
+            <label>Cateogry</label>
+            <select class="browser-default custom-select mb-4" (change)="selectChangeHandler($event,0)">
+                <option value="1" disabled>Choose option</option>
+                <option value="1" selected>Any Cateogry</option>
+                <option value="20">Mythology</option>
+                <option value="21">Sports</option>
+                <option value="22">Geography</option>
+                <option value="23">History</option>
+
+            </select>
+
+            <label>Difficulty</label>
+            <select class="browser-default custom-select mb-4" (change)="selectChangeHandler($event,1)">
+                <option value="1" disabled>Choose option</option>
+                <option value="1" selected>Any Difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <label>Type</label>
+            <select class="browser-default custom-select mb-4" (change)="selectChangeHandler($event,2)">
+                <option value="1" disabled>Choose option</option>
+                <option value="1" selected>Any Type</option>
+                <option value="multiple">Multiple Choice</option>
+            </select>
+            <!-- Send button -->
+            <button class="btn btn-info btn-block" (click)="ignite()" routerLink="/quiz/0">Start Test</button>
+
+        </form>
+        <!-- Default form contact -->
+    </div>
+</body>

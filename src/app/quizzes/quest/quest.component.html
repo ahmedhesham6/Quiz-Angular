@@ -1,0 +1,22 @@
+<!-- Default form contact -->
+
+<body>
+    <div class="container">
+        <div class="text-center border border-light p-5">
+
+            <p class="h1 mb-4 text-center">Question {{QuestId+1}}/10</p>
+
+            <p class="h3 mb-4 text-left">{{getQuestion(QuestId)}}</p>
+
+            <div class="row">
+                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(0))">{{getAns(0)}}</button></div>
+                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(1))">{{getAns(1)}}</button></div>
+                <div class="w-100"></div>
+                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(2))">{{getAns(2)}}</button></div>
+                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(3))">{{getAns(3)}}</button></div>
+            </div>
+            <!-- Send button -->
+        </div>
+        <!-- Default form contact -->
+    </div>
+</body>
