@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       title: `Welcome ${this.userModel.first_name}`,
       type:'success',
       confirmButtonText:
-        '<a href="">Confirm</a>',
+        '<a href="" style="color:#fff">Confirm</a>',
     })}
     else{
       console.log(this.userModel);
