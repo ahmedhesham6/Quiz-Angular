@@ -39,19 +39,26 @@ export class UsersListComponent implements OnInit {
     this.currentUser.id=this.users.data[x].id+1;
     this.users.data.push(this.currentUser);
     console.log(this.users.data);
+    this._userService.addUser(this.currentUser);
     this.currentUser= new User;
   }
   Edit(id:number){
+    let x;
+    console.log(id);
     this.users.data.forEach((element,index) => {
       if (element.id==id){
         this.users.data[index].first_name=this.currentUser.first_name;
         this.users.data[index].last_name=this.currentUser.last_name;
         this.users.data[index].email=this.currentUser.email;
+        x=index;
       }      
     });
+    this._userService.editUser(this.users.data[x]);
+    this.currentUser= new User;
   }
-  Delete(id:number){
-    this.users.data = this.users.data.filter(t=> t.id !=id);
+  Delete(user:User){
+    this.users.data = this.users.data.filter(t=> t.id !=user.id);
+    this._userService.deleteUser(user);
   }
   setValue(user){
     this.currentUser.first_name=user.first_name;

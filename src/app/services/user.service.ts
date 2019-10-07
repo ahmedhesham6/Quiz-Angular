@@ -16,7 +16,7 @@ const httpOptions = {
 export class UserService {
 
   constructor(private http:HttpClient,private myRoute: Router) { }
-  usersUrl:string='https://reqres.in/api/users?';
+  usersUrl:string='https://reqres.in/api/users';
   private currentUser= new Subject<User>();
   $currentUser=this.currentUser.asObservable();
 
@@ -65,10 +65,19 @@ export class UserService {
   }
 
   getUsers():Observable<any>{
-    return this.http.get<User>(`${this.usersUrl}`);
+    return this.http.get<User>(`${this.usersUrl}?`);
   }
   getPage(page:number):Observable<any>{
-    return this.http.get<User>(`${this.usersUrl}page=${page}`);
+    return this.http.get<User>(`${this.usersUrl}?page=${page}`);
+  }
+  addUser(user:User):Observable<any>{
+    return this.http.post<User>(this.usersUrl,user,httpOptions);    
+  }
+  editUser(user:User):Observable<any>{
+    return this.http.put<User>(`${this.usersUrl}/${user.id}`,user,httpOptions);
+  }
+  deleteUser(user:User):Observable<any>{
+    return this.http.delete<User>(`${this.usersUrl}/${user.id}`,httpOptions);
   }
 
 }
