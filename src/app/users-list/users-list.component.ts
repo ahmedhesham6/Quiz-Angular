@@ -42,11 +42,16 @@ export class UsersListComponent implements OnInit {
     this.currentUser= new User;
   }
   Edit(id:number){
-    this.Delete(id);
-    this.Add();
+    this.users.data.forEach((element,index) => {
+      if (element.id==id){
+        this.users.data[index].first_name=this.currentUser.first_name;
+        this.users.data[index].last_name=this.currentUser.last_name;
+        this.users.data[index].email=this.currentUser.email;
+      }      
+    });
   }
   Delete(id:number){
-    this.users.data =this.users.data.filter(t=> t.pd !=id);
+    this.users.data = this.users.data.filter(t=> t.id !=id);
   }
   setValue(user){
     this.currentUser.first_name=user.first_name;
