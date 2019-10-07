@@ -47,6 +47,7 @@ export class QuestComponent implements OnInit {
   nextQuest(Ans:string){
     console.log(Ans);
     console.log(this.getCrctAnswer(this.QuestId));
+    for(var i=1;i<5;i++)document.getElementById(`btn${i}`).blur();
     if(Ans==this.getCrctAnswer(this.QuestId))this.Correct+=1;
     if(this.QuestId+1>=10){
       Swal.fire({
@@ -55,14 +56,14 @@ export class QuestComponent implements OnInit {
         html:
           'You got ' + this.Correct +
           ' answers correct out of 10 ',
-        showCloseButton: true,
+        showCloseButton: false,
         showCancelButton: true,
         focusConfirm: false,
         confirmButtonText:
-          '<a href=""><i class="fa fa-thumbs-up"></i>Done!</a>',
+          '<a href="" style="color:#fff;"><i class="fa fa-thumbs-up"></i>Done!</a>',
         confirmButtonAriaLabel: 'Thumbs up, great!',
         cancelButtonText:
-          '<a href="/quiz"><i class="fa fa-refresh"></i>Try again</a>',
+          '<a href="/quiz" style="color:#fff;"><i class="fa fa-refresh"></i>Try again</a>',
         cancelButtonAriaLabel: 'Thumbs down'
       })
     }

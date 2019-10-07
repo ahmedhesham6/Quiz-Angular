@@ -9,11 +9,11 @@
             <p class="h3 mb-4 text-left">{{getQuestion(QuestId)}}</p>
 
             <div class="row">
-                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(0))">{{getAns(0)}}</button></div>
-                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(1))">{{getAns(1)}}</button></div>
+                <div class="col"><button id="btn1" class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(0));">{{getAns(0)}}</button></div>
+                <div class="col"><button id="btn2" class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(1))">{{getAns(1)}}</button></div>
                 <div class="w-100"></div>
-                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(2))">{{getAns(2)}}</button></div>
-                <div class="col"><button class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(3))">{{getAns(3)}}</button></div>
+                <div class="col"><button id="btn3" class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(2))">{{getAns(2)}}</button></div>
+                <div class="col"><button id="btn4" class="btn button"routerLink="/quiz/{{QuestId+1}}"(click)="nextQuest(getAns(3))">{{getAns(3)}}</button></div>
             </div>
             <!-- Send button -->
         </div>
