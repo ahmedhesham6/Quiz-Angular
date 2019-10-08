@@ -34,9 +34,8 @@ export class UsersListComponent implements OnInit {
     }
   }
   Add(){
-    let x=0;
-    if(this.users.data.length!=0)x=this.users.data.length-1;
     this.currentUser.id=1;
+    if(this.users.data.length!=0)this.currentUser.id=this.users.data[this.users.data.length-1].id+1;
     this.users.data.push(this.currentUser);
     console.log(this.users.data);
     this._userService.addUser(this.currentUser);

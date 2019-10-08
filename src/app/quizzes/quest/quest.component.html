@@ -1,7 +1,7 @@
 <!-- Default form contact -->
 
 <body>
-    <div class="container">
+    <div class="container" *ngIf="QuestList.results[QuestId].question">
         <div class="text-center border border-light p-5">
 
             <p class="h1 mb-4 text-center">Question {{QuestId+1}}/10</p>
